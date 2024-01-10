@@ -23,10 +23,10 @@ const Header = () => {
   ];
 
   return (
-    <div className='w-full h-20 bg-white shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]'>
+    <div className='w-full h-20 bg-white shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] font-titleFont'>
       <div className='max-w-screen-xl h-full mx-auto flex items-center justify-between '>
         <div className='w-10 h-10'>
-          <img className='rounded-full' src={Logo} alt='logo' />
+          <img className='rounded-full cursor-pointer' src={Logo} alt='logo' />
         </div>
         <div className='flex items-center gap-8 text-xl'>
           {navItems.map((item, index) => {
