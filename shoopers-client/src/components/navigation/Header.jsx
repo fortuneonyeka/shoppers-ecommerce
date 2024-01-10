@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Logo } from '../../assets/index.js';
+import { Logo, user, cart } from '../../assets/index.js';
 
 const Header = () => {
   const navItems = [
@@ -20,6 +20,14 @@ const Header = () => {
       name: 'Blogs',
       link: '/blogs',
     },
+    {
+      img: cart,
+      link: '/blogs',
+    },
+    {
+      img: user,
+      link: '/blogs',
+    },
   ];
 
   return (
@@ -28,10 +36,16 @@ const Header = () => {
         <div className='w-10 h-10'>
           <img className='rounded-full cursor-pointer' src={Logo} alt='logo' />
         </div>
-        <div className='flex items-center gap-8 text-xl'>
+        <div className='flex items-center gap-8 text-xl px-2'>
           {navItems.map((item, index) => {
-            return <div key={index}><p className='text-base text-black font-bold hover:text-orange-900 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300'>{item.name}</p></div>
+            return <div key={index}>
+              <p className='text-base text-black font-bold hover:text-orange-900 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300'>{item.name}</p>
+              <div className='w-7 flex '>
+                <img className='border-2 rounded-full' src={item.img} alt="" />
+              </div>
+            </div>
           })}
+          
         </div>
       </div>
     </div>
