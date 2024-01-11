@@ -23,6 +23,7 @@ const Header = () => {
     {
       img: cart,
       link: '/blogs',
+      number: 0
     },
     {
       img: user,
@@ -40,8 +41,9 @@ const Header = () => {
           {navItems.map((item, index) => {
             return <div key={index}>
               <p className='text-base text-black font-bold hover:text-orange-900 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300'>{item.name}</p>
-              <div className='w-7 flex '>
+              <div className='w-8 flex relative'>
                 <img className='border-2 rounded-full' src={item.img} alt="" />
+                <span className='absolute w-6 top-1 left-3 text-xs flex items-center justify-center font-semibold'>{item.number}</span>
               </div>
             </div>
           })}
