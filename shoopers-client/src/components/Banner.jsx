@@ -18,8 +18,8 @@ const Banner = () => {
                   })}
             </div>
             <div className='absolute w-fit left-0 right-0 mx-auto flex gap-8 bottom-'>
-                  <div className='border-4 p-2'><FaArrowLeftLong/></div>
-                  <div><FaArrowRight/></div>
+                  <div className='border-4 p-2 '><FaArrowLeftLong/></div>
+                  <div className='border-4 p-2'><FaArrowRight/></div>
                   
             </div>
       </div>
