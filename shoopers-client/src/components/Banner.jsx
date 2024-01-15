@@ -6,7 +6,7 @@ import nextamazone4 from "../assets/gadget3.png"
 import { FaArrowLeftLong , FaArrowRight } from "react-icons/fa6";
 
 const Banner = () => {
-      const data = [nextamazone1, nextamazone2,nextamazone3,]
+      const data = [nextamazone1, nextamazone2,nextamazone3, nextamazone4]
   return (
     <div className='w-full h-auto overflow-x-hidden'>
       <div className='w-screen h-[650px] relative'>
