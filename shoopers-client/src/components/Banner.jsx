@@ -7,50 +7,29 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 
 const Banner = () => {
   const data = [nextamazone1, nextamazone2, nextamazone3, nextamazone4];
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? data.length - 1 : prevIndex - 1
-    );
+    setCurrentSlide((prev) => (prev - 1 + data.length) % data.length);
   };
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === data.length - 1 ? 0 : prevIndex + 1
-    );
+    setCurrentSlide((prev) => (prev + 1) % data.length);
   };
 
   return (
     <div className="w-full h-auto overflow-x-hidden">
-      <div className="w-screen h-[650px] relative">
-        <div className="w-[400vw] h-full flex gap-">
-          <img
-            className="w-screen h-full object-fit"
-            src={data[0]}
-            alt="imageOne"
-          />
-          <img
-            className="w-screen h-full object-fit"
-            src={data[1]}
-            alt="imagetwo"
-          />
-          <img
-            className="w-screen h-full object-fit"
-            src={data[2]}
-            alt="imageThree"
-          />
-          <img
-            className="w-screen h-full object-fit"
-            src={data[3]}
-            alt="imageThree"
-          />
+      <div className="w-screen h-[650px] relative ">
+        <div style={{ transform: `translateX(-${currentSlide * 100}vw)` }} className="w-[400vw] h-full flex transition-transform duration-1000">
+          {data.map((image, index) => (
+            <img key={index} className="w-screen h-full object-fit" src={image} alt={`image${index + 1}`} />
+          ))}
         </div>
-        <div className="absolute  right-[50%] mx-auto flex gap-8 bottom-5">
-          <div className="border-4 p-2 cursor-pointer" onClick={handlePrev}>
+        <div className="absolute right-[50%] mx-auto flex gap-8 bottom-5">
+          <div className="bg-gray-600 text-white p-2 cursor-pointer hover:bg-green-600 shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]" onClick={handlePrev}>
             <FaArrowLeft />
           </div>
-          <div className="border-4 p-2 cursor-pointer" onClick={handleNext}>
+          <div className="bg-gray-600 text-white p-2 cursor-pointer hover:bg-green-600 shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]" onClick={handleNext}>
             <FaArrowRight />
           </div>
         </div>
@@ -60,3 +39,4 @@ const Banner = () => {
 };
 
 export default Banner;
+
