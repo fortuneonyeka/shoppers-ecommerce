@@ -22,7 +22,7 @@ const Banner = () => {
   };
 
   return (
-    <div className="w-full h-auto ">
+    <div className="w-full h-auto overflow-x-hidden">
       <div className="w-screen h-[650px] relative">
         <div className="w-[400vw] h-full flex gap-">
           <img
