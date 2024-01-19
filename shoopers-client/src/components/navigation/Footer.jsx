@@ -25,8 +25,8 @@ const Footer = () => {
             }
       ]
   return (
-    <div className=' bg-gray-800 text-[#949494] font-titleFont py-20 px-4 '>
-      <div className='max-w-screen-xl mx-auto flex justify-between'>
+    <div className=' bg-gray-800 text-[#949494] font-titleFont py-20 px-4'>
+      <div className='max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between'>
       <div className='w-10 h-10 flex flex-col gap-6'>
             <img className='rounded-full cursor-pointer' src={Logo} alt="Logo" />
             <p>@Ihedoro</p>

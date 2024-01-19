@@ -19,10 +19,10 @@ const Banner = () => {
 
   return (
     <div className="w-full h-auto overflow-x-hidden">
-      <div className="w-screen h-[650px] relative ">
+      <div className="w-screen md:h-[600px] lg:h-[650px] relative ">
         <div style={{ transform: `translateX(-${currentSlide * 100}vw)` }} className="w-[400vw] h-full flex transition-transform duration-1000">
           {data.map((img, index) => (
-            <img key={index} className="w-screen h-full object-fit" src={img} alt={`img${index + 1}`} />
+            <img key={index} className="w-screen md:h-full object-fit" src={img} alt={`img${index + 1}`} />
           ))}
         </div>
         <div className="absolute right-[50%] mx-auto flex gap-8 bottom-5">
