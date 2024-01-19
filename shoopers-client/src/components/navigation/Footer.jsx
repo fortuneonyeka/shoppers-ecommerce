@@ -2,8 +2,28 @@ import React from 'react'
 import { Logo, payments} from '../../assets/index.js';
 import { FaInstagramSquare, FaLinkedin, FaGithub  } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
+
+      const socials = [
+            {
+            social: FaGithub,
+            link: "https://github.com/fortuneonyeka"
+            },
+            {
+            social: FaLinkedin,
+            link: "https://github.com/fortuneonyeka"
+            },
+            {
+            social: FaInstagramSquare,
+            link: "https://github.com/fortuneonyeka"
+            },
+            {
+            social: FaXTwitter,
+            link: "https://github.com/fortuneonyeka"
+            }
+      ]
   return (
     <div className=' bg-gray-800 text-[#949494] font-titleFont py-20 px-4 '>
       <div className='max-w-screen-xl mx-auto flex justify-between'>
@@ -16,6 +36,12 @@ const Footer = () => {
             <div className='w-24 transform transition-transform duration-300 hover:scale-150'>
             <img  src={payments} alt="payments" />
             </div>
+            {/* <div>
+                  {socials.map((social) => {
+                        return <div>{<social.socila />}</div>
+                        
+                  })}
+            </div> */}
             <div className='flex gap-2 w-32 '>
                   <FaGithub className="transition-transform duration-300 hover:scale-150 hover:text-blue-300 cursor-pointer"/>
                   <FaInstagramSquare className="transition-transform duration-300 hover:scale-150 hover:text-[#D400C3] hover:rounded-full cursor-pointer" />
@@ -39,9 +65,9 @@ const Footer = () => {
             <p className='text-xs'>help & support</p>
       </div>
       <div >
-            <form action="" className='flex flex-col shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)]'>
-                  <input type="email" placeholder='email'/>
-                  <button className='bg-gray-800 text-white rounded-lg hover:bg-[#17A349] hover:text-black'>subscribe</button>
+            <form action="" className='flex flex-col shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)] rounded-md gap-2 py-2'>
+                  <input type="email" placeholder='email' className='rounded-md py-2 px-1'/>
+                  <button className='bg-gray-700 text-white rounded-lg hover:bg-[#17A349] hover:text-black py-2 px-1 focus:border-none text-md'>subscribe</button>
             </form>
       </div>
       </div>
