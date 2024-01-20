@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Logo, payments } from '../../assets/index.js';
 import { FaInstagramSquare, FaLinkedin, FaGithub } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
@@ -36,7 +37,7 @@ const Footer = () => {
     <div className='bg-gray-800 text-[#949494] font-titleFont py-20 px-4'>
       <div className='max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between'>
         <div className='w-10 h-10 flex flex-col gap-6'>
-          <img className='rounded-full cursor-pointer' src={Logo} alt='Logo' />
+          <Link to="/"><img className='rounded-full cursor-pointer' src={Logo} alt='Logo' /></Link>
           <p>@Ihedoro</p>
         </div>
         <div className='flex flex-col gap-6'>

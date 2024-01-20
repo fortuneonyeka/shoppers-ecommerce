@@ -35,7 +35,7 @@ const Header = () => {
     <div className=' h-20 bg-white shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] font-titleFont sticky top-0 z-50'>
       <div className='max-w-screen-xl h-full mx-auto flex items-center justify-between '>
         <div className='w-10 h-10'>
-          <img className='rounded-full cursor-pointer' src={Logo} alt='logo' />
+          <Link to="/"><img className='rounded-full cursor-pointer' src={Logo} alt='logo' /></Link>
         </div>
         <div className='hidden md:flex items-center gap-8 text-xl px-2'>
           {navItems.map((item, index) => {

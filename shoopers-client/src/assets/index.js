@@ -1,5 +1,8 @@
 import Logo from "./logo.png"
-import gadget1 from "./gadget1.jpeg"
+import headset from "./headset.webp"
+import shirt from "./shirt.webp"
+import table from "./table.webp"
+import camera from "./camera.webp"
 import gadget2 from "./gadget2.jpeg"
 import gadget3 from "./gadget3.png"
 import gadget4 from "./gadget4.jpeg"
@@ -9,4 +12,4 @@ import payments from "./paymentlogos.jpeg"
 import cart from "./cart.jpeg"
 import google from "./google-logo.png"
 
-export  {Logo, gadget1, gadget2,gadget3,gadget4,github,user,payments,cart, google}
+export  {Logo, headset, shirt,table,camera,github,user,payments,cart, google}

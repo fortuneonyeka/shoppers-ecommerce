@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {headset,camera,shirt,table} from "../assets/index"
 import nextamazone1 from "../assets/nextamazon2.jpg";
 import nextamazone2 from "../assets/nextamazon6.jpg";
 import nextamazone3 from "../assets/nextamazon8.jpg";
@@ -6,7 +7,7 @@ import nextamazone4 from "../assets/gadget3.png";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 
 const Banner = () => {
-  const data = [nextamazone1, nextamazone2, nextamazone3, nextamazone4];
+  const data = [headset, camera, shirt, table];
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const handlePrev = () => {
@@ -19,7 +20,7 @@ const Banner = () => {
 
   return (
     <div className="w-full h-auto overflow-x-hidden">
-      <div className="w-screen md:h-[600px] lg:h-[650px] relative ">
+      <div className="w-screen md:h-[600px] lg:h-[750px] relative ">
         <div style={{ transform: `translateX(-${currentSlide * 100}vw)` }} className="w-[400vw] h-full flex transition-transform duration-1000">
           {data.map((img, index) => (
             <img key={index} className="w-screen md:h-full object-fit" src={img} alt={`img${index + 1}`} />

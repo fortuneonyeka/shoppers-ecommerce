@@ -1,4 +1,5 @@
 import "./App.css";
+import { productData } from "./api/Api";
 import Footer from "./components/navigation/Footer";
 import Header from "./components/navigation/Header";
 import Cart from "./pages/Cart";
@@ -27,7 +28,8 @@ const router = createBrowserRouter([
     children:[
       {
         path:"/",
-        element: <Home />
+        element: <Home />,
+        loader: productData,
       },
       {
         path:"/cart",
