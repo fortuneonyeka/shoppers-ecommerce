@@ -2,25 +2,33 @@ import React from 'react';
 import { Logo, payments } from '../../assets/index.js';
 import { FaInstagramSquare, FaLinkedin, FaGithub } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
-import { Link } from 'react-router-dom';
+import { TiUser } from "react-icons/ti";
+import { IoBagCheckOutline } from "react-icons/io5";
+import { MdSpatialTracking } from "react-icons/md";
+import { FaHandsHelping } from "react-icons/fa";
+
 
 const Footer = () => {
   const socials = [
     {
       social: FaGithub,
       link: 'https://github.com/fortuneonyeka',
+      color: "blue-300 "
     },
     {
       social: FaLinkedin,
       link: 'https://www.linkedin.com/in/fortuneonyeka/',
+      color:"[#0A66C2] "
     },
     {
       social: FaInstagramSquare,
       link: 'https://www.instagram.com/fortuneonyeka/',
+      color:"[#D400C3] "
     },
     {
       social: FaXTwitter,
       link: 'https://twitter.com/fortuneonyeka',
+      color: "[#0A66C2]"
     },
   ];
 
@@ -40,7 +48,7 @@ const Footer = () => {
               <a key={index} href={social.link} target='_blank' rel='noopener noreferrer'>
                  
                 <social.social
-                  className='transition-transform duration-300 hover:scale-150 hover:text-blue-300 cursor-pointer'
+                  className={`transition-transform duration-300 hover:scale-150 hover:text-${social.color} cursor-pointer`}
                 />
               </a>
             ))}
@@ -55,21 +63,26 @@ const Footer = () => {
         </div>
         <div className='flex flex-col gap-2 cursor-pointer'>
           <h3 className='text-md font-bold'>Profile</h3>
-          <a href='/account' className='text-xs'>
+          <a href='/account' className='text-xs flex gap-1 items-center transition-transform duration-300 hover:scale-150 hover:text-green-200'>
+            <span><TiUser /></span>
              My Account
           </a>
-          <a href='/checkout' className='text-xs'>
+          <a href='/checkout' className='text-xs flex gap-1 items-center transition-transform duration-300 hover:scale-150 hover:text-green-200'>
+          <span><IoBagCheckOutline /></span>
              Checkout
           </a>
-          <a href='/order-tracking' className='text-xs '>
+          <a href='/order-tracking' className='text-xs flex gap-1 items-center transition-transform duration-300 hover:scale-150 hover:text-green-200 '>
+          <span><MdSpatialTracking /></span>
             Order Tracking
           </a>
-          <a href='/help-support' className='text-xs'> 
+          <a href='/help-support' className='text-xs flex gap-1 items-center transition-transform duration-300 hover:scale-150 hover:text-green-200'> 
+          <span><FaHandsHelping /></span>
             Help & Support
           </a>
         </div>
-        <div>
-          <form action='' className='flex flex-col shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)] rounded-md gap-2 py-2'>
+        <div className='flex flex-col gap-2'>
+            <p>Subscribe</p>
+          <form action='' className='flex flex-col shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)] rounded-md gap-2'>
             <input type='email' placeholder='email' className='rounded-md py-2 px-1' />
             <button className='bg-gray-700 text-white rounded-lg hover:bg-[#17A349] hover:text-black py-2 px-1 focus:border-none text-md'>
               Subscribe
