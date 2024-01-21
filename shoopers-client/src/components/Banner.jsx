@@ -1,9 +1,5 @@
 import React, { useState } from "react";
 import {headset,camera,shirt,table} from "../assets/index"
-import nextamazone1 from "../assets/nextamazon2.jpg";
-import nextamazone2 from "../assets/nextamazon6.jpg";
-import nextamazone3 from "../assets/nextamazon8.jpg";
-import nextamazone4 from "../assets/gadget3.png";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 
 const Banner = () => {
