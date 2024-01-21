@@ -5,8 +5,8 @@ const ProductCard = ({product}) => {
   const truncatedTitle = product.title.length > 20 ? product.title.slice(0, 20) + '...' : product.title;
   return (
     <div className=''>
-      <div className='flex flex-col gap-4 p-4 shadow-[rgba(0,_0,_0,_0.4)_0px_30px_90px] rounded-lg w-full h-full cursor-pointer overflow-hidden group'>
-        <img src={product.image} alt="" className='shadow-[rgba(0,_0,_0,_0.4)_0px_30px_90px] rounded-xl md:px-4 h-full w-full object-cover group-hover:scale-110 duration-500'/>
+      <div className='flex flex-col gap-4 p-2 md:p-5 shadow-[rgba(0,_0,_0,_0.4)_0px_30px_90px] rounded-lg w-full h-full cursor-pointer overflow-hidden group'>
+        <img src={product.image} alt="" className='shadow-[rgba(0,_0,_0,_0.4)_0px_30px_90px] rounded-xl h-full w-full object-cover group-hover:scale-110 duration-500'/>
         <div className='text-sm'>
           <p className='text-xs md:text-md lg:text-lg font-bold'>{truncatedTitle}</p>
           <div className='flex flex-col md:flex-row md:gap-2 text-xs'>

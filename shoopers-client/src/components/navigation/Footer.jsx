@@ -35,12 +35,13 @@ const Footer = () => {
 
   return (
     <div className='bg-gray-800 text-[#949494] font-titleFont py-20 px-4'>
-      <div className='max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between'>
+      <div className='max-w-screen-xl mx-auto grid grid-cols-2 gap-2 md:flex md:flex-row justify-between'>
+         
         <div className='w-10 h-10 flex flex-col gap-6'>
           <Link to="/"><img className='rounded-full cursor-pointer' src={Logo} alt='Logo' /></Link>
           <p>@Ihedoro</p>
         </div>
-        <div className='flex flex-col gap-6'>
+        <div className='flex md:flex-col gap-6 py-8 pt-14 px-8'>
           <div className='w-24 transform transition-transform duration-300 hover:scale-150'>
             <img src={payments} alt='payments' />
           </div>
@@ -55,6 +56,7 @@ const Footer = () => {
             ))}
           </div>
         </div>
+        
         <div className='flex flex-col gap-2'>
           <h3 className='text-md font-bold'>Contact Us</h3>
           <p className='text-xs'>Victorial: Island, Lagos</p>
@@ -83,9 +85,9 @@ const Footer = () => {
         </div>
         <div className='flex flex-col gap-2'>
             <p>Subscribe</p>
-          <form action='' className='flex flex-col shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)] rounded-md gap-2'>
+          <form action='' className='flex gap-2 md:gap-2 md:flex-col shadow-[5px_5px_rgba(0,_98,_90,_0.4),_10px_10px_rgba(0,_98,_90,_0.3),_15px_15px_rgba(0,_98,_90,_0.2),_20px_20px_rgba(0,_98,_90,_0.1),_25px_25px_rgba(0,_98,_90,_0.05)] rounded-md'>
             <input type='email' placeholder='email' className='rounded-md py-2 px-1' />
-            <button className='bg-gray-700 text-white rounded-lg hover:bg-[#17A349] hover:text-black py-2 px-1 focus:border-none text-md'>
+            <button className='bg-gray-700 text-white rounded-lg hover:bg-[#17A349] hover:text-black py-2 px-4 md:px-1 focus:border-none text-md'>
               Subscribe
             </button>
           </form>
