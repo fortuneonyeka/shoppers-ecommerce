@@ -7,7 +7,7 @@ import nextamazone4 from "../assets/gadget3.png";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 
 const Banner = () => {
-  const data = [headset, camera, shirt, table];
+  const data = [table, camera, shirt, headset];
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const handlePrev = () => {

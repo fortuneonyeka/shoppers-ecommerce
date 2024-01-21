@@ -10,7 +10,7 @@ const ProductCard = ({product}) => {
           <p className='text-lg font-bold'>{truncatedTitle}</p>
           <div className='flex flex-co gap-2'>
           <p className='group-hover:hidden'>Price: </p>
-      <p className="line-through px-2 group-hover:hidden">{product.oldPrice}</p>
+      <p className="line-through px-2 group-hover:hidden text-red-400">{product.oldPrice}</p>
       <p className="group-hover:hidden">{product.price}</p>
       <span className="hidden group-hover:flex text-green-400">Add to Cart</span>
           </div>
