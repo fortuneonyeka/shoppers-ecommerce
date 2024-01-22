@@ -40,7 +40,9 @@ const ProductCard = ({ product }) => {
             </span>
           </span>
         </div>
-        
+        <div className="absolute top-1 right-4 hidden group-hover:flex text-xs">
+          <p>Discount: {discountPercentage}%</p>
+        </div>
       </div>
     </div>
   );
