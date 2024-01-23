@@ -1,7 +1,9 @@
 import React from "react";
+import {useNavigate} from "react-router-dom"
 import { FaLongArrowAltRight } from "react-icons/fa";
 
 const ProductCard = ({ product }) => {
+  const navigate = useNavigate()
   const truncatedTitle =
     product.title.length > 20
       ? product.title.slice(0, 20) + "..."
@@ -10,10 +12,22 @@ const ProductCard = ({ product }) => {
       // Calculate discount percentage
       const discountPercentage = product.oldPrice > product.price
       ? Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100)
-      : 0;
+      : "0";
+
+        const id = product.title
+        const idString = (id) => {
+          return String(id).toLowerCase().split(" ").join("")
+        }
+
+        const rootId = idString(id)
+
+      const handleDetails = () => {
+        navigate(`/productDetails/${rootId}`)
+      }
+
   return (
     <div className="">
-      <div className="flex flex-col gap-4 p-2 md:p-5 shadow-[rgba(0,_0,_0,_0.4)_0px_30px_90px] rounded-lg w-full h-full cursor-pointer overflow-hidden group relative">
+      <div onClick={handleDetails} className="flex flex-col gap-4 p-2 md:p-5 shadow-[rgba(0,_0,_0,_0.4)_0px_30px_90px] rounded-lg w-full h-full cursor-pointer overflow-hidden group relative">
         <img
           src={product.image}
           alt=""
@@ -34,14 +48,17 @@ const ProductCard = ({ product }) => {
           </p>
           <p className="group-hover:hidden font-bold">$: {product.price}</p>
           <span className="hidden group-hover:flex text-green-400 gap-4">
-            Add to Cart{" "}
+            <a href="/productDetails">Add to Cart</a>
             <span className="flex items-center text-black">
               <FaLongArrowAltRight />
             </span>
           </span>
         </div>
         <div className="absolute top-1 right-4 hidden group-hover:flex text-xs">
-          <p>Discount: {discountPercentage}%</p>
+          {/* <p>Discount: {discountPercentage}%</p> */}
+          <div>{discountPercentage &&(
+            <p>{discountPercentage}% sales</p>
+          )}</div>
         </div>
       </div>
     </div>
