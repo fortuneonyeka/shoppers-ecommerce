@@ -22,7 +22,11 @@ const ProductCard = ({ product }) => {
         const rootId = idString(id)
 
       const handleDetails = () => {
-        navigate(`/productDetails/${rootId}`)
+        navigate(`/productDetails/${rootId}`, {
+          state: {
+            item: product,
+          }
+        })
       }
 
   return (
