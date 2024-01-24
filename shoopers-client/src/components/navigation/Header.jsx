@@ -6,7 +6,7 @@ const Header = () => {
   const navItems = [
     {
       name: 'Home',
-      link: '/home',
+      link: '/',
     },
     {
       name: 'About',
@@ -40,7 +40,7 @@ const Header = () => {
         <div className='hidden md:flex items-center gap-8 text-xl px-2'>
           {navItems.map((item, index) => {
             return <div key={index}>
-              <p className='text-base text-black font-bold hover:text-orange-900 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300'>{item.name}</p>
+              <p className='text-base text-black font-bold hover:text-orange-900 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300'><Link to={item.link}>{item.name}</Link></p>
               <div className='w-8 flex relative'>
                 <img className='border-2 rounded-full' src={item.img} alt="" />
                 <span className='absolute w-6 top-1 left-3 text-xs flex items-center justify-center font-semibold'>{item.number}</span>
