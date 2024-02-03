@@ -31,7 +31,7 @@ const ProductCard = ({ product }) => {
 
   return (
     <div className="">
-      <div onClick={handleDetails} className="flex flex-col gap-4 p-2 md:p-5 shadow-[rgba(0,_0,_0,_0.4)_0px_30px_90px] rounded-lg w-full h-full cursor-pointer overflow-hidden group relative">
+      <div onClick={handleDetails} className="flex flex-col gap-4 p-2 md:p-5 shadow-[rgba(0,_0,_0,_0.4)_0px_30px_90px] rounded-lg w-full h-full cursor-pointer overflow-hidden group relative hover:shadow-[5px_5px_0px_0px_rgba(109,40,217)]">
         <img
           src={product.image}
           alt=""
@@ -58,7 +58,7 @@ const ProductCard = ({ product }) => {
             </span>
           </span>
         </div>
-        <div className="absolute top-1 right-4 hidden group-hover:flex text-xs">
+        <div className="absolute top-4 right-6 hidden group-hover:flex text-xs">
           {/* <p>Discount: {discountPercentage}%</p> */}
           <div>{discountPercentage &&(
             <p>{discountPercentage}% sales</p>

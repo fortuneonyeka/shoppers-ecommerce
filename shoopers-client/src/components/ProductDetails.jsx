@@ -13,10 +13,10 @@ const ProductDetails = () => {
   return (
     <div>
       <div className="py-4 px-6">
-        <Link to="/" className="py-2 px-6 rounded-lg shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)]">back</Link>
+        <Link to="/" className="py-2 px-6 rounded-lg shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)] hover:shadow-[5px_5px_0px_0px_rgba(109,40,217)] hover:capitalize">back</Link>
       </div>
-      <div className="max-w-screen-xl mx-auto my-10 flex gap-16">
-        <div className="w-2/5 relative shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)]">
+      <div className="max-w-screen-xl mx-auto my-10 flex gap-16 shadow-[5px_5px_0px_0px_rgba(109,40,217)]">
+        <div className="w-2/5 rounded-lg relative shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)]">
           <img
             className="w-full h-[550px] object-cover p-6 hover:scale-110 duration-500"
             src={details.image}
@@ -61,7 +61,7 @@ const ProductDetails = () => {
               <div>
                 <p className="text-sm">Quantity</p>
               </div>
-              <button className="text-white bg-black py-2 px-3 rounded-lg hover:bg-green-400 hover:text-black hover:capitalize">
+              <button className="text-white bg-black py-2 px-3 rounded-lg hover:bg-green-400 hover:text-black hover:capitalize hover:shadow-[5px_5px_0px_0px_rgba(109,40,217)]">
                 add to cart
               </button>
             </div>
