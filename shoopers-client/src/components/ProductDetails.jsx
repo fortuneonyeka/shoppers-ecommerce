@@ -70,7 +70,7 @@ const ProductDetails = () => {
                 add to cart
               </button>
             </div>
-            <p>{details.category}</p>
+            <p className="text-base text-gray-600 ">Category: <span className="capitalize text-gray-400 font-medium">{details.category}</span></p>
           </div>
         </div>
       </div>
