@@ -1,5 +1,6 @@
 import "./App.css";
 import { productData } from "./api/Api";
+import NotFound from "./components/NotFound";
 import ProductDetails from "./components/ProductDetails";
 import Footer from "./components/navigation/Footer";
 import Header from "./components/navigation/Header";
@@ -41,10 +42,10 @@ const router = createBrowserRouter([
         path:"/productDetails/:id",
         element: <ProductDetails />
       },
-      // {
-      //   path:"/blog",
-      //   element: <Blog />
-      // }
+      {
+        path:"*",
+        element: <NotFound />
+      }
     ]
   }
 ])

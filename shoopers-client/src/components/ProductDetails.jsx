@@ -58,8 +58,13 @@ const ProductDetails = () => {
               <p className="text-gray-500 text-sm">{details.des}</p>
             </div>
             <div className="flex gap-4 text-center items-center">
-              <div>
-                <p className="text-sm">Quantity</p>
+              <div className="w-52 flex item-center justify-between text-gray-500 gap-4 p-3 rounded-lg shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px]">
+                <p className="text-xs">Quantity</p>
+                <div className="flex items-center gap-4 text-sm font-semibold">
+                <button className="hover:bg-gray-600 hover:text-white px-2 active:to-black hover:rounded-md">-</button>
+                <span>{1}</span>
+                <button className="hover:bg-gray-600 hover:text-white px-2 active:to-black hover:rounded-md">+</button>
+                </div>
               </div>
               <button className="text-white bg-black py-2 px-3 rounded-lg hover:bg-green-400 hover:text-black hover:capitalize hover:shadow-[5px_5px_0px_0px_rgba(109,40,217)]">
                 add to cart
