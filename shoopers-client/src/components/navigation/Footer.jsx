@@ -34,8 +34,8 @@ const Footer = () => {
   ];
 
   return (
-    <div className='bg-gray-800 text-[#949494] font-titleFont py-20 px-4'>
-      <div className='max-w-screen-xl mx-auto grid grid-cols-2 gap-2 md:flex md:flex-row justify-between'>
+    <div className='bg-gray-800 text-[#949494] font-titleFont px-4 bottom-0 z-50 '>
+      <div className='max-w-screen-xl mx-auto grid grid-cols-2 gap-2 md:flex md:flex-row py-5 justify-between'>
          
         <div className='w-10 h-10 flex flex-col gap-6'>
           <Link to="/"><img className='rounded-full cursor-pointer hover:shadow-[5px_5px_0px_0px_rgba(109,40,217)]' src={Logo} alt='Logo' /></Link>
