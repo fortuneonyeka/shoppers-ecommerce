@@ -9,6 +9,8 @@ export const cartSlice = createSlice({
       name: "product",
       initialState,
       reducers: {
-            
+
       }
 })
+
+export default cartSlice.reducer
