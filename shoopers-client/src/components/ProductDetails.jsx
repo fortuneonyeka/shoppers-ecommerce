@@ -8,7 +8,7 @@ const ProductDetails = () => {
   const location = useLocation();
   useEffect(() => {
     setDetails(location.state.item);
-  }, []);
+  }, [location.state.item]);
 
   return (
     <div>
