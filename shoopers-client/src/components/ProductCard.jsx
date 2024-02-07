@@ -1,8 +1,11 @@
 import React from "react";
 import {useNavigate} from "react-router-dom"
 import { FaLongArrowAltRight } from "react-icons/fa";
+import {  useDispatch } from 'react-redux'
+import { addToCart } from "../features/shopperSlice";
 
 const ProductCard = ({ product }) => {
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   const truncatedTitle =
     product.title.length > 20
@@ -31,8 +34,9 @@ const ProductCard = ({ product }) => {
 
   return (
     <div className="">
-      <div onClick={handleDetails} className="flex flex-col gap-4 p-2 md:p-5 shadow-[rgba(0,_0,_0,_0.4)_0px_30px_90px] rounded-lg w-full h-full cursor-pointer overflow-hidden group relative hover:shadow-[5px_5px_0px_0px_rgba(109,40,217)]">
+      <div className="flex flex-col gap-4 p-2 md:p-5 shadow-[rgba(0,_0,_0,_0.4)_0px_30px_90px] rounded-lg w-full h-full cursor-pointer overflow-hidden group relative hover:shadow-[5px_5px_0px_0px_rgba(109,40,217)]">
         <img
+        onClick={handleDetails} 
           src={product.image}
           alt=""
           className="shadow-[rgba(0,_0,_0,_0.4)_0px_30px_90px] rounded-xl h-full w-full object-cover group-hover:scale-110 duration-500"
@@ -52,7 +56,13 @@ const ProductCard = ({ product }) => {
           </p>
           <p className="group-hover:hidden font-bold">$: {product.price}</p>
           <span className="hidden group-hover:flex text-green-400 gap-4">
-            <a href="/productDetails">Add to Cart</a>
+            <p onClick={() => dispatch(addToCart({
+              _id:product._id,
+              image:product.image,
+              price:product.price,
+              quantity: 1,
+              description: product.des
+            }))}>Add to Cart</p>
             <span className="flex items-center text-black">
               <FaLongArrowAltRight />
             </span>

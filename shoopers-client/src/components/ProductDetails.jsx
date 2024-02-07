@@ -2,8 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { MdOutlineStarPurple500 } from "react-icons/md";
 import { Link } from "react-router-dom";
+import {  useDispatch } from 'react-redux'
+import { addToCart } from "../features/shopperSlice";
 
 const ProductDetails = () => {
+  const dispatch = useDispatch()
   const [details, setDetails] = useState({});
   const location = useLocation();
   useEffect(() => {
@@ -66,7 +69,13 @@ const ProductDetails = () => {
                 <button className="hover:bg-gray-600 hover:text-white px-2 active:to-black hover:rounded-md">+</button>
                 </div>
               </div>
-              <button className="text-white bg-black py-2 px-3 rounded-lg hover:bg-green-400 hover:text-black hover:capitalize hover:shadow-[5px_5px_0px_0px_rgba(109,40,217)]">
+              <button onClick={() =>dispatch(addToCart({
+                _id:details._id,
+                image:details.image,
+                price:details.price,
+                quantity: 1,
+                description: details.des
+              }))} className="text-white bg-black py-2 px-3 rounded-lg hover:bg-green-400 hover:text-black hover:capitalize hover:shadow-[5px_5px_0px_0px_rgba(109,40,217)]">
                 add to cart
               </button>
             </div>
