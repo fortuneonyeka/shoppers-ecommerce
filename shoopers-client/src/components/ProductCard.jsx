@@ -58,6 +58,7 @@ const ProductCard = ({ product }) => {
           <span className="hidden group-hover:flex text-green-400 gap-4">
             <p onClick={() => dispatch(addToCart({
               _id:product._id,
+              title:product.title,
               image:product.image,
               price:product.price,
               quantity: 1,
