@@ -71,6 +71,7 @@ const ProductDetails = () => {
               </div>
               <button onClick={() =>dispatch(addToCart({
                 _id:details._id,
+                title:details.title,
                 image:details.image,
                 price:details.price,
                 quantity: 1,
