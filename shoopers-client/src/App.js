@@ -6,6 +6,7 @@ import Footer from "./components/navigation/Footer";
 import Header from "./components/navigation/Header";
 import Cart from "./pages/Cart";
 import Home from "./pages/Home";
+import { ToastContainer} from 'react-toastify';
 import {
   createBrowserRouter,
   Outlet,
@@ -54,6 +55,7 @@ function App() {
   return (
     <div className="font-bodyFont">
       <RouterProvider router={router}/>
+      <ToastContainer/>
     </div>
   );
 }

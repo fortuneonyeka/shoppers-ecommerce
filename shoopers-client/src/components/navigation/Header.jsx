@@ -45,14 +45,14 @@ const Header = () => {
           {navItems.map((item, index) => (
             <div key={index}>
               <p className='text-base text-black font-bold hover:text-orange-900 hover:underline underline-offset-2 decoration-[1px] cursor-pointer duration-300'><Link to={item.link}>{item.name}</Link></p>
-              <div className='w-8 flex relative'>
                 <Link to="/cart">
+              <div className='w-8 flex relative'>
                 <img className='border-2 rounded-full hover:shadow-[5px_5px_0px_0px_rgba(109,40,217)]' src={item.img} alt="" />
-                </Link>
                 {item.number > 0 && ( 
                   <span className='absolute w-6 top-1 left-3 text-xs flex items-center justify-center font-semibold'>{item.number}</span>
-                )}
+                  )}
               </div>
+                  </Link>
             </div>
           ))}
         </div>
