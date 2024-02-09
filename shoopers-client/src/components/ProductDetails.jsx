@@ -4,10 +4,12 @@ import { MdOutlineStarPurple500 } from "react-icons/md";
 import { Link } from "react-router-dom";
 import {  useDispatch } from 'react-redux'
 import { addToCart } from "../features/shopperSlice";
+import { toast } from 'react-toastify';
 
 const ProductDetails = () => {
   const dispatch = useDispatch()
   const [details, setDetails] = useState({});
+  let [baseQty, setBaseQty] = useState(1)
   const location = useLocation();
   useEffect(() => {
     setDetails(location.state.item);
@@ -64,9 +66,9 @@ const ProductDetails = () => {
               <div className="w-52 flex item-center justify-between text-gray-500 gap-4 p-3 rounded-lg shadow-[rgba(50,_50,_105,_0.15)_0px_2px_5px_0px,_rgba(0,_0,_0,_0.05)_0px_1px_1px_0px]">
                 <p className="text-xs">Quantity</p>
                 <div className="flex items-center gap-4 text-sm font-semibold">
-                <button className="hover:bg-gray-600 hover:text-white px-2 active:to-black hover:rounded-md">-</button>
-                <span>{1}</span>
-                <button className="hover:bg-gray-600 hover:text-white px-2 active:to-black hover:rounded-md">+</button>
+                <button onClick={() => setBaseQty(baseQty === 1 ? baseQty = 1 : baseQty - 1)} className="hover:bg-gray-600 hover:text-white px-2 active:to-black hover:rounded-md">-</button>
+                <span>{baseQty}</span>
+                <button onClick={() => setBaseQty(baseQty + 1)} className="hover:bg-gray-600 hover:text-white px-2 active:to-black hover:rounded-md">+</button>
                 </div>
               </div>
               <button onClick={() =>dispatch(addToCart({
@@ -74,9 +76,14 @@ const ProductDetails = () => {
                 title:details.title,
                 image:details.image,
                 price:details.price,
-                quantity: 1,
+                quantity: baseQty,
                 description: details.des
-              }))} className="text-white bg-black py-2 px-3 rounded-lg hover:bg-green-400 hover:text-black hover:capitalize hover:shadow-[5px_5px_0px_0px_rgba(109,40,217)]">
+              })) & toast.success(
+                `You have successfully added ${baseQty} ${details.title} to your cart`,
+                {
+                  position: "top-right",
+                }
+              )} className="text-white bg-black py-2 px-3 rounded-lg hover:bg-green-400 hover:text-black hover:capitalize hover:shadow-[5px_5px_0px_0px_rgba(109,40,217)]">
                 add to cart
               </button>
             </div>
