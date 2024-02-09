@@ -3,6 +3,7 @@ import {useNavigate} from "react-router-dom"
 import { FaLongArrowAltRight } from "react-icons/fa";
 import {  useDispatch } from 'react-redux'
 import { addToCart } from "../features/shopperSlice";
+import {toast } from 'react-toastify';
 
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch()
@@ -63,7 +64,12 @@ const ProductCard = ({ product }) => {
               price:product.price,
               quantity: 1,
               description: product.des
-            }))}>Add to Cart</p>
+            })) & toast.success(
+              `You have successfully added 1 ${product.title} to your cart`,
+              {
+                position: "top-right",
+              }
+            )}>Add to Cart</p>
             <span className="flex items-center text-black">
               <FaLongArrowAltRight />
             </span>
