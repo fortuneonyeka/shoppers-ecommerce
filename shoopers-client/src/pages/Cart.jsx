@@ -31,9 +31,9 @@ const Cart = () => {
                   src={item.image}
                   alt=""
                 />
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-4 py-4">
 
-                <h3 className="text-2xl font-bold">{item.title}</h3>
+                <h3 className="text-xl font-bold pt-4">{item.title}</h3>
                 <p>{item.description}</p>
                 <p>Quantity: {item.quantity}</p>
                 <p>Price: ${item.quantity * item.price}</p> {/* Display price for each item */}
@@ -41,7 +41,7 @@ const Cart = () => {
                 </div>
               </div>
             </div>
-          ))): <p className="text-4xl text-center text-gray-500 h-[70vh] flex justify-center items-center">You have no Item in your cart</p>}
+          ))): <p className="text-4xl text-gray-500 h-[70vh] flex justify-center text-center">You have no Item in your cart</p>}
       </div>
       </div>
     </div>
