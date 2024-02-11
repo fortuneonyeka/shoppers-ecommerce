@@ -1,48 +1,77 @@
-import React,{useMemo} from "react";
-import { useSelector } from "react-redux";
+import React, { useMemo, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { decrementItem, deleteItem, resetCart } from "../features/shopperSlice";
+import { MdDeleteForever } from "react-icons/md";
+import { RxReset } from "react-icons/rx";
+import { CiBatteryEmpty } from "react-icons/ci";
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.shopper.productData);
-  console.log(cartItems);
-   // Calculate total price using useMemo to avoid unnecessary re-renders
-   const totalPrice = useMemo(() => {
+ 
+  const dispatch = useDispatch();
+  // Calculate total price using useMemo to avoid unnecessary re-renders
+  const totalPrice = useMemo(() => {
     return cartItems.reduce((total, item) => {
-      return total + (item.quantity * item.price); // Assuming each item has a 'price' property
+      return total + item.quantity * item.price; // Assuming each item has a 'price' property
     }, 0);
   }, [cartItems]);
-  
+
   return (
     <div>
       <div className="flex flex-col py-12">
-       {cartItems.length > 0 && (
-        <div className="text-right text-xl font-bold px-12">
-          Total Price: ${totalPrice.toFixed(2)}
-        </div>
-      )}
-      <div className="py-4 px-6 grid grid-cols-3 gap-6">
-        
-        {cartItems && cartItems.length > 0 ?
-          (cartItems.map((item) => (
-            <div className="max-w-screen-xl mx-auto flex gap-16 hover:scale-95 duration-500">
-              
-              <div className=" flex gap-6 px-9 rounded-lg relative shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)] justify-center items-center">
-                <img
-                  className="w-[40%] h-[300px] object-fit  "
-                  src={item.image}
-                  alt=""
-                />
-                <div className="flex flex-col gap-4 py-4">
+        {cartItems.length > 0 && (
+          <div className=" text-xl font-bold px-12 flex gap-4 justify-end">
+            <p> Total Price: ${totalPrice.toFixed(2)}</p>
+            <div onClick={() =>dispatch(resetCart())} className="text-red-300 cursor-pointer relative group">
+              <RxReset  />
+              <p className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-6 right-0 text-xs text-red-500">
+                clear cart
+              </p>
+            </div>
+          </div>
+        )}
+        <div className="py-4 px-6 grid grid-cols-3 gap-6">
+          {cartItems && cartItems.length > 0 ? (
+            cartItems.map((item) => (
+              <div
+                key={item._id}
+                className="max-w-screen-xl mx-auto flex gap-16 hover:scale-95 duration-500 relative"
+              >
+                <div className=" flex gap-6 px-9 rounded-lg relative shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)] justify-center items-center">
+                  <img
+                    className="w-[40%] h-[300px] object-fit"
+                    src={item.image}
+                    alt=""
+                  />
+                  <div className="flex flex-col gap-4 py-4">
+                    <h3 className="text- xl font-bold pt-4">{item.title}</h3>
+                    <p>{item.description}</p>
+                    <p>Quantity: {item.quantity}</p>
+                    <p>Price: ${item.quantity * item.price}</p>
+                  </div>
 
-                <h3 className="text-xl font-bold pt-4">{item.title}</h3>
-                <p>{item.description}</p>
-                <p>Quantity: {item.quantity}</p>
-                <p>Price: ${item.quantity * item.price}</p> {/* Display price for each item */}
-
+                  <p className="absolute left-2 top-2 text-2xl cursor-pointer">-</p>
+                  <p onClick={() => dispatch(decrementItem())} className="absolute left-8 top-2 text-2xl cursor-pointer">+</p>
+                  
+                  <p
+                    onClick={() => dispatch(deleteItem(item._id))}
+                    className="absolute top-0 right-2 p-4 text-2xl cursor-pointer text-red-300"
+                  >
+                    <MdDeleteForever />
+                  </p>
                 </div>
               </div>
+            ))
+          ) : (
+            <div className="flex flex-col relative text-red-300 ">
+
+            <p className="text-4xl h-[70vh] flex justify-center text-center">
+              You have no Item in your cart
+            </p>
+            <p className="text-black text-4xl absolute top-12 left-28 font-light"><CiBatteryEmpty className="text-[200px] font-light text-red-300 " /></p>
             </div>
-          ))): <p className="text-4xl text-gray-500 h-[70vh] flex justify-center text-center">You have no Item in your cart</p>}
-      </div>
+          )}
+        </div>
       </div>
     </div>
   );
