@@ -19,13 +19,17 @@ const shopperSlice = createSlice({
         state.productData.push(action.payload);
       }
     },
+    incrementItem: (state, action) => {
+      const item = state.productData.find((item) => item._id === action.payload._id)
+      if (item) {
+        item.quantity++;
+      }
+     },
     decrementItem: (state, action) => {
-     const item = state.productData.find((item) => item._id === action.payload)
-     if (item.quantity === 1) {
-      item.quantity =1
-     }else {
-      item.quantity--
-     }
+     const item = state.productData.find((item) => item._id === action.payload._id)
+     if (item && item.quantity > 1) {
+      item.quantity--;
+    }
     },
 
     deleteItem: (state, action) => {
@@ -38,6 +42,6 @@ const shopperSlice = createSlice({
   },
 });
 
-export const { addToCart, deleteItem, resetCart, decrementItem } = shopperSlice.actions;
+export const { addToCart, deleteItem, resetCart, decrementItem, incrementItem } = shopperSlice.actions;
 
 export default shopperSlice.reducer;
