@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { decrementItem, deleteItem, resetCart, incrementItem } from "../features/shopperSlice";
 import { MdDeleteForever } from "react-icons/md";
 import { RxReset } from "react-icons/rx";
-import { CiBatteryEmpty } from "react-icons/ci";
+import emptyCart from "../assets/empty-cart.avif"
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.shopper.productData);
@@ -31,7 +31,7 @@ const Cart = () => {
             </div>
           </div>
           
-          <button className=" text-white bg-black h-12 rounded-lg hover:bg-green-400 hover:text-black hover:capitalize hover:shadow-[5px_5px_0px_0px_rgba(109,40,217)] w-[200px] hover:capitalize">check out</button>
+          <button className=" text-white bg-black h-12 rounded-lg hover:bg-green-400 hover:text-black hover:capitalize hover:shadow-[5px_5px_0px_0px_rgba(109,40,217)] w-[200px]">check out</button>
           </div>
         )}
         <div className="py-4 px-6 grid grid-cols-3 gap-6">
@@ -39,7 +39,7 @@ const Cart = () => {
             cartItems.map((item) => (
               <div
                 key={item._id}
-                className="max-w-screen-xl mx-auto flex gap-16 hover:scale-95 duration-500 relative hover:shadow-[5px_5px_0px_0px_rgba(109,40,217)] hover:rounded-lg"
+                className="max-w-screen-xl mx-auto flex gap-16 hover:scale-95 duration-500 relative hover:shadow-[5px_5px_0px_0px_rgba(109,40,217)] hover:rounded-lg "
               >
                 <div className="flex gap-6 px-9 rounded-lg relative shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)] justify-center items-center">
                   <img
@@ -67,11 +67,11 @@ const Cart = () => {
               </div>
             ))
           ) : (
-            <div className="flex flex-col relative text-red-300 ">
-              <p className="text-4xl h-[70vh] flex justify-center text-center">
+            <div className="flex flex-col text-red-300 border-4 w-full h-[100vh] items-center">
+              <p className="text-4xl  flex justify-center text-center">
                 You have no Item in your cart
               </p>
-              <p className="text-black text-4xl absolute top-12 left-28 font-light"><CiBatteryEmpty className="text-[200px] font-light text-red-300 " /></p>
+              <img className="w-[800px] h-[800px]" src={emptyCart} alt="empty Cart" />
             </div>
           )}
         </div>
