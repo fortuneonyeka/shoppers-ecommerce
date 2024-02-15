@@ -6,6 +6,7 @@ import { RxReset } from "react-icons/rx";
 import emptyCart from "../assets/empty-cart.avif"
 import { FaPlusCircle } from "react-icons/fa";
 import { FaCircleMinus } from "react-icons/fa6";
+import { toast } from 'react-toastify';
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.shopper.productData);
@@ -26,7 +27,12 @@ const Cart = () => {
           <div className="flex justify-end px-6 items-center">
           <div className="text-xl font-bold px-12 flex gap-4 justify-end  py-6">
             <p>Total Price: ${totalPrice.toFixed(2)}</p>
-            <div onClick={() => dispatch(resetCart())} className="text-red-300 cursor-pointer relative group">
+            <div onClick={() => dispatch(resetCart())& toast.error(
+                `You have cleared your cart`,
+                {
+                  position: "top-right",
+                }
+              )} className="text-red-300 cursor-pointer relative group">
               <RxReset />
               <p className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-6 right-0 text-xs text-red-500">
                 clear cart
@@ -63,7 +69,12 @@ const Cart = () => {
                   
                  
                   <p
-                    onClick={() => dispatch(deleteItem(item._id))}
+                    onClick={() => dispatch(deleteItem(item._id))& toast.error(
+                      `You have successfully removed ${item.title} from your cart`,
+                      {
+                        position: "top-right",
+                      }
+                    )}
                     className="absolute top-0 right-2 p-4 text-2xl cursor-pointer text-red-300"
                   >
                     <MdDeleteForever />
