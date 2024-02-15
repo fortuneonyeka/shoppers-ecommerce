@@ -4,6 +4,8 @@ import { decrementItem, deleteItem, resetCart, incrementItem } from "../features
 import { MdDeleteForever } from "react-icons/md";
 import { RxReset } from "react-icons/rx";
 import emptyCart from "../assets/empty-cart.avif"
+import { FaPlusCircle } from "react-icons/fa";
+import { FaCircleMinus } from "react-icons/fa6";
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.shopper.productData);
@@ -17,6 +19,7 @@ const Cart = () => {
   }, [cartItems]);
 
   return (
+    
     <div className="h-full py-4">
       <div className="flex flex-col">
         {cartItems.length > 0 && (
@@ -53,10 +56,12 @@ const Cart = () => {
                     <p>Quantity: {item.quantity}</p>
                     <p>Price: ${item.quantity * item.price}</p>
                   </div>
-
-                  <p onClick={() => dispatch(decrementItem({ _id: item._id }))} className="absolute left-2 top-2 text-2xl cursor-pointer">-</p>
-                  <p onClick={() => dispatch(incrementItem({ _id: item._id }))} className="absolute left-8 top-2 text-2xl cursor-pointer">+</p>
                   
+
+                  <p onClick={() => dispatch(decrementItem({ _id: item._id }))} className="absolute left-2 top-2 text-2xl cursor-pointer"><FaCircleMinus className="hover:text-red-300"/></p>
+                  <p onClick={() => dispatch(incrementItem({ _id: item._id }))} className="absolute left-8 top-2 text-2xl cursor-pointer px-4"><FaPlusCircle className="hover:text-blue-600"/></p>
+                  
+                 
                   <p
                     onClick={() => dispatch(deleteItem(item._id))}
                     className="absolute top-0 right-2 p-4 text-2xl cursor-pointer text-red-300"
@@ -67,16 +72,15 @@ const Cart = () => {
               </div>
             ))
           ) : (
-            <div className="flex flex-col text-red-300 border-4 w-full h-[100vh] items-center">
-              <p className="text-4xl  flex justify-center text-center">
-                You have no Item in your cart
-              </p>
+            <div className="flex flex-col justify-center items-center text-red-300 w-full h-screen">
+              <p className="text-4xl text-center">You have no Item in your cart</p>
               <img className="w-[800px] h-[800px]" src={emptyCart} alt="empty Cart" />
             </div>
           )}
         </div>
       </div>
     </div>
+   
   );
 };
 
