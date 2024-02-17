@@ -37,8 +37,8 @@ const Footer = () => {
   ];
 
   return (
-    <div className="bg-gray-800 text-[#949494] font-titleFont px-4 z-50  w-[100%]">
-      <div className="max-w-screen-xl mx-auto grid grid-cols-2 md:flex md:flex-row py-12  justify-between">
+    <div className="bg-gray-800 text-[#949494] font-titleFont px-4 z-50 ">
+      <div className="max-w-screen-xl mx-auto grid grid-cols-2 gap-7 md:flex md:flex-row py-12  justify-between">
         <div className="w-12 h-12 flex flex-col gap- py-4">
           <Link to="/">
             <img
@@ -53,7 +53,7 @@ const Footer = () => {
           <div className="w-32 transform transition-transform duration-300 hover:scale-150">
             <img src={payments} alt="payments" />
           </div>
-          <div className="flex gap-4">
+          <div className="flex gap-1 md:gap-4">
             {socials.map((social, index) => (
               <a
                 key={index}
@@ -70,7 +70,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-2 py-3 ">
+        <div className="flex flex-col gap-2 py-9 md:py-3 ">
           <h3 className="font-bold text-lg ">Contact Us</h3>
           <div className="text-sm">
             <p>Victorial: Island, Lagos</p>
