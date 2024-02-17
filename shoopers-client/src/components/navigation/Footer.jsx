@@ -37,7 +37,7 @@ const Footer = () => {
   ];
 
   return (
-    <div className="bg-gray-800 text-[#949494] font-titleFont px-4 z-50  w-[100%] h-[200px]">
+    <div className="bg-gray-800 text-[#949494] font-titleFont px-4 z-50  w-[100%]">
       <div className="max-w-screen-xl mx-auto grid grid-cols-2 md:flex md:flex-row py-12  justify-between">
         <div className="w-12 h-12 flex flex-col gap- py-4">
           <Link to="/">
