@@ -16,7 +16,7 @@ const ProductCard = ({ product }) => {
       // Calculate discount percentage
       const discountPercentage = product.oldPrice > product.price
       ? Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100)
-      : "0";
+      : "";
 
         const id = product.title
         const idString = (id) => {
@@ -78,7 +78,7 @@ const ProductCard = ({ product }) => {
         <div className="absolute top-4 right-6 hidden group-hover:flex text-xs">
           {/* <p>Discount: {discountPercentage}%</p> */}
           <div>{discountPercentage &&(
-            <p>{discountPercentage}% sales</p>
+            <p>{discountPercentage}% discount</p>
           )}</div>
         </div>
       </div>
