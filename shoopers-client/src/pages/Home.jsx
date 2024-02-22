@@ -7,7 +7,7 @@ const Home = () => {
   const [products, setProducts] = useState([])
   const data = useLoaderData()
   useEffect(() => {
-    setProducts(data.data)
+    setProducts(data)
   }, [data])
 
   return (
