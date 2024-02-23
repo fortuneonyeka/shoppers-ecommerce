@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import ProductCard from "./ProductCard";
+import {useLoaderData} from "react-router-dom"
 
 const Products = ({products}) => {
+  const data = useLoaderData()
+  console.log(data);
+  const [error, setError] = useState(null)
+  const [loading, setLoading] = useState(true)
+
   return (
     <div className="py-10 ">
       <div className="flex flex-col justify-center mx- items-center gap-4 ">
