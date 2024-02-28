@@ -3,19 +3,20 @@ import ProductCard from "./ProductCard";
 import ReactLoading from 'react-loading';
 import { useLoaderData } from "react-router-dom";
 
-const Products = ({ products }) => {
+const Products = () => {
   const data = useLoaderData();
   
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
 
+
   useEffect(() => {
-    if (products) {
+    if (data) {
       setLoading(false);
     }else {
       setError(true)
     }
-  }, [products]);
+  }, [data]);
 
   return (
     <div className="py-10 ">
@@ -28,7 +29,7 @@ const Products = ({ products }) => {
         {loading ? (
           <ReactLoading type={'spin'} color={'#000'} height={50} width={50} />
         ) : (error ? (<p>error loading data</p>):(
-          products && products.map((product) => (
+          data && data.map((product) => (
             <ProductCard key={product._id} product={product}/>
           ))
         ))}
