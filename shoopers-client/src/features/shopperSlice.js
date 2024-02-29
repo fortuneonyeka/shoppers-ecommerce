@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   productData: [],
@@ -6,11 +6,14 @@ const initialState = {
 };
 
 const shopperSlice = createSlice({
-  name: 'shopper',
+  name: "shopper",
   initialState,
   reducers: {
     addToCart: (state, action) => {
-      const itemIndex = state.productData.findIndex((item) => item._id === action.payload._id);
+      const itemIndex = state.productData.findIndex(
+        (item) => item._id === action.payload._id
+      );
+
       if (itemIndex !== -1) {
         // If item already exists in the cart, update its quantity
         state.productData[itemIndex].quantity += action.payload.quantity;
@@ -20,28 +23,39 @@ const shopperSlice = createSlice({
       }
     },
     incrementItem: (state, action) => {
-      const item = state.productData.find((item) => item._id === action.payload._id)
+      const item = state.productData.find(
+        (item) => item._id === action.payload._id
+      );
       if (item) {
         item.quantity++;
       }
-     },
+    },
     decrementItem: (state, action) => {
-     const item = state.productData.find((item) => item._id === action.payload._id)
-     if (item && item.quantity > 1) {
-      item.quantity--;
-    }
+      const item = state.productData.find(
+        (item) => item._id === action.payload._id
+      );
+      if (item && item.quantity > 1) {
+        item.quantity--;
+      }
     },
 
     deleteItem: (state, action) => {
-      state.productData = state.productData.filter((item) => item._id !== action.payload)
+      state.productData = state.productData.filter(
+        (item) => item._id !== action.payload
+      );
     },
     resetCart: (state) => {
-      state.productData = []
-    }
-
+      state.productData = [];
+    },
   },
 });
 
-export const { addToCart, deleteItem, resetCart, decrementItem, incrementItem } = shopperSlice.actions;
+export const {
+  addToCart,
+  deleteItem,
+  resetCart,
+  decrementItem,
+  incrementItem,
+} = shopperSlice.actions;
 
 export default shopperSlice.reducer;
