@@ -55,40 +55,40 @@ const Cart = () => {
               </div>
             </div>
 
-            <button className=" text-white bg-black h-12 rounded-lg hover:bg-green-400 hover:text-black hover:capitalize hover:shadow-[5px_5px_0px_0px_rgba(109,40,217)] w-[200px]">
+            <button className="text-xs md:text-sm text-white bg-black h-12 md:h-12 rounded-lg hover:bg-green-400 hover:text-black hover:capitalize hover:shadow-[5px_5px_0px_0px_rgba(109,40,217)] w-[200px]">
               check out
             </button>
           </div>
         )}
-        <div className="py-4 px-6 grid grid-cols-3 gap-6">
+        <div className="md:py-4 md:px-6 grid md:grid-cols-3 gap-6">
           {cartItems && cartItems.length > 0 ? (
             cartItems.map((item) => (
               <div
                 key={item._id}
                 className="max-w-screen-xl mx-auto flex gap-16 hover:scale-95 duration-500 relative hover:shadow-[5px_5px_0px_0px_rgba(109,40,217)] hover:rounded-lg "
               >
-                <div className="flex gap-6 px-9 rounded-lg relative shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)] justify-center items-center">
+                <div className="flex gap-6 md:px-9 rounded-lg relative shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)] justify-center items-center">
                   <img
                     className="w-[40%] h-[300px] object-fit"
                     src={item.image}
                     alt=""
                   />
-                  <div className="flex flex-col gap-4 py-4">
-                    <h3 className="text- xl font-bold pt-4">{item.title}</h3>
-                    <p>{item.description}</p>
+                  <div className="flex flex-col md:gap-2">
+                    <h3 className="text-xl font-bold pt-4">{item.title}</h3>
+                    <p className="hidden md:block">{item.description}</p>
                     <p>Quantity: {item.quantity}</p>
                     <p>Price: ${item.quantity * item.price}</p>
                   </div>
 
                   <p
                     onClick={() => dispatch(decrementItem({ _id: item._id }))}
-                    className="absolute left-2 top-2 text-2xl cursor-pointer"
+                    className="absolute left-2 top-2 text-lg md:text-2xl cursor-pointer"
                   >
                     <FaCircleMinus className="hover:text-red-300" />
                   </p>
                   <p
                     onClick={() => dispatch(incrementItem({ _id: item._id }))}
-                    className="absolute left-8 top-2 text-2xl cursor-pointer px-4"
+                    className="absolute left-8 top-2 text-lg md:text-2xl cursor-pointer px-4"
                   >
                     <FaPlusCircle className="hover:text-blue-600" />
                   </p>
