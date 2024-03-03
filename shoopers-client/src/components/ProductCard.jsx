@@ -4,7 +4,6 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 import {  useDispatch } from 'react-redux'
 import { addToCart } from "../features/shopperSlice";
 import {toast } from 'react-toastify';
-// import {useLoaderData} from "react-router-dom"
 
 const ProductCard = ({ product }) => {
   

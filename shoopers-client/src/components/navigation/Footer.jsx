@@ -24,8 +24,8 @@ const Footer = () => {
     {
       social: FaInstagramSquare,
       link: "https://www.instagram.com/fortuneonyeka/",
-      // color: "[#D400C3] ",
-      color: "red-400"
+      color: "[#D400C3] ",
+      // color: "red-600"
     },
     {
       social: FaXTwitter,
