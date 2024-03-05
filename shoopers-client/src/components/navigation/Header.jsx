@@ -7,9 +7,14 @@ const Header = () => {
   const [showMobileNav, setShowMobileNav] = useState(false);
   const [activeNavItem, setActiveNavItem] = useState(null);
 
+  // Selecting the cart items from the Redux store
   const cartItems = useSelector((state) => state.shopper.productData);
 
-  const itemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+  // Counting the total number of items in the cart
+  // const totalItemsInCart = cartItems.reduce((total, item) => total + item.quantity, 0);
+
+  // Counting the number of unique items in the cart
+  const uniqueItemsInCart = cartItems.length;
 
   const navItems = [
     {
@@ -31,7 +36,7 @@ const Header = () => {
     {
       img: cart,
       link: "/cart",
-      number: itemCount,
+      addedItems: uniqueItemsInCart,
     },
     {
       img: user,
@@ -102,15 +107,16 @@ const Header = () => {
                     src={item.img}
                     alt=""
                   />
-                  {item.link === "/cart" && item.number > 0 && (
+                  {item.link === "/cart" && item.addedItems > 0 && (
                     <span className="absolute w-6 top-1 left-3 flex text-xs text-black px-2 items-center justify-center font-semibold">
-                      {item.number}
+                      {item.addedItems}
                     </span>
                   )}
                 </div>
               </Link>
             </div>
           ))}
+          
         </div>
       </div>
     </div>
