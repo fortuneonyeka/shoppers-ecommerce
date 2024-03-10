@@ -30,14 +30,14 @@ const Cart = () => {
     <div className="h-full py-4">
       <div className="flex flex-col">
         {cartItems.length > 0 && (
-          <div className="flex justify-between px-6 items-center">
-            <p className="relative cursor-pointer group">
+          <div className="flex flex-col pb-8 md:flex-row justify-between px-6 items-center">
+            <p className="hidden md:block relative cursor-pointer group">
              <IoPlayBack className="cursor-pointer" />
             <Link to="/"><span className=" opacity-0 group-hover:opacity-100 absolute top-0 left-0 bg-green-400 text-black capitalize py-1 px-4 rounded-md text-xs shadow-[5px_5px_0px_0px_rgba(109,40,217)]">
               Back to shopping
               </span></Link>  
             </p>
-            <div className="text-xl font-bold px-12 flex gap-6  py-6">
+            <div className="text-sm md:text-xl font-bold px-12 flex gap-6  py-6">
               <p>Total Price: ${totalPrice.toFixed(2)}</p>
               <div
                 onClick={() =>
@@ -56,7 +56,7 @@ const Cart = () => {
             </div>
 
             <button className="text-xs md:text-sm text-white bg-black h-12 md:h-12 rounded-lg hover:bg-green-400 hover:text-black hover:capitalize hover:shadow-[5px_5px_0px_0px_rgba(109,40,217)] w-[200px]">
-              check out
+              Proceed To Check Out
             </button>
           </div>
         )}
@@ -67,9 +67,9 @@ const Cart = () => {
                 key={item._id}
                 className="max-w-screen-xl mx-auto flex gap-16 hover:scale-95 duration-500 relative hover:shadow-[5px_5px_0px_0px_rgba(109,40,217)] hover:rounded-lg "
               >
-                <div className="flex gap-6 md:px-9 rounded-lg relative shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)] justify-center items-center">
+                <div className="flex gap-6 md:flex-col lg:flex-row md:px-9 rounded-lg relative shadow-[0px_4px_16px_rgba(17,17,26,0.1),_0px_8px_24px_rgba(17,17,26,0.1),_0px_16px_56px_rgba(17,17,26,0.1)] justify-center items-center">
                   <img
-                    className="w-[40%] h-[300px] object-fit"
+                    className="w-[40%] h-[300px] object-fit md:w-[100%] lg:w-[40%]"
                     src={item.image}
                     alt=""
                   />
