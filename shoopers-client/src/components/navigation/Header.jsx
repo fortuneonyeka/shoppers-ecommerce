@@ -27,12 +27,9 @@ const Header = () => {
     },
     {
       name: "Shop",
-      link: "/shop",
+      link: "/",
     },
-    {
-      name: "Blogs",
-      link: "/blogs",
-    },
+   
     {
       img: cart,
       link: "/cart",
