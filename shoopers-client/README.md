@@ -29,6 +29,7 @@ git@github.com:fortuneonyeka/shoppers-ecommerce.git
 2. Now that you have already cloned the repo run the following commands to get the project up and running:
 ```sh
 cd shoppers-ecommerce
+cd shoppers
 npm install
 npm start / yarn start
 
