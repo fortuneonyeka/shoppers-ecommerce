@@ -2,6 +2,7 @@ import React, { useState } from "react";
 // import Google from "../assets/goggle-image.webp"
 import Google from "../assets/google-color.jpeg";
 import Github from "../assets/github-dark.png";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
 
 const Login = () => {
   const initialState = {
@@ -21,6 +22,33 @@ const Login = () => {
     console.log(details);
     setDetails(initialState);
   };
+
+  //firebase authentication
+  const auth = getAuth()
+  const provider = new GoogleAuthProvider()
+
+  
+  const handleGoogleLogin = (e) => {
+    e.preventDefault()
+    signInWithPopup(auth, provider).then((result) => {
+       // This gives you a Google Access Token. You can use it to access the Google API.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    // The signed-in user info.
+    const user = result.user;
+    console.log(user);
+
+    }).catch((error) => {
+      // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    })
+   
+  }
 
   return (
     <div className="h-screen relative">
@@ -57,7 +85,7 @@ const Login = () => {
           </button>
         </form>
       </div>
-      <div className="w-19 h-14 flex gap-20 absolute bottom-[32%] left-[40%]">
+      <div onClick={handleGoogleLogin} className="w-19 h-14 flex gap-20 absolute bottom-[32%] left-[40%]">
         <img
           src={Google}
           alt="google"
