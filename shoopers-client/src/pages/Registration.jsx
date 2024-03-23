@@ -28,7 +28,7 @@ const Registration = () => {
           action=""
           className="flex flex-col md:px-12 gap-4 shadow-[rgba(0,_0,_0,_0.4)_0px_30px_90px] w-full px-4 md:w-[50%] py-12 rounded-lg bg-gray-600"
         >
-          <p className="text-center text-2xl text-white">Login</p>
+          <p className="text-center text-2xl text-white">Sign Up</p>
           <input
             onChange={handleChange}
             type="email"
@@ -49,11 +49,10 @@ const Registration = () => {
           />
           <button
             type="submit"
-            className="shadow-[rgba(0,_0,_0,_0.4)_0px_30px_90px] w-[30%] py-3 rounded-lg flex justify-center mx-auto text-xl font-medium hover:shadow-[5px_5px_0px_0px_rgba(109,40,217)] bg-blue-600 text-white hover:bg-green-500 hover:text-black"
+            className="shadow-[rgba(0,_0,_0,_0.4)_0px_30px_90px] w-[30%] py-3 rounded-lg flex justify-center mx-auto lg:text-xl font-medium hover:shadow-[5px_5px_0px_0px_rgba(109,40,217)] bg-blue-600 text-white hover:bg-green-500 hover:text-black"
           >
             Sign Up
           </button>
-        <p className="text-center text-white">Dont have account? <a href="" className="font-bold text-gray-200">Sign Up</a></p>
         </form>
      
       </div>

@@ -1,57 +1,58 @@
 import React, { useState } from "react";
-// import Google from "../assets/goggle-image.webp"
 import Google from "../assets/google-color.jpeg";
+import { Navigate } from "react-router-dom"; // Import Navigate from react-router-dom
 import Github from "../assets/github-dark.png";
-import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
+import { doSignInWithEmailAndPassword,doSignInWithGoogle } from "../firebase/auth";
+// import { useAuth } from "../contexts/authContext";
+// import { useAuth } from "../contexts/authContext"; 
+import { useAuth } from '../contexts/authContext'
+
+
+
 
 const Login = () => {
+  
+  const { userLoggedIn } = useAuth();
   const initialState = {
     email: "",
     password: "",
   };
 
   const [details, setDetails] = useState(initialState);
+  const [isSigninIn, setIsSigningIn] = useState(false);
+  // const [errorMessage, setErrorMessage] = useState("")
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setDetails((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(details);
+    if (!isSigninIn) {
+      setIsSigningIn(true)
+      await doSignInWithEmailAndPassword(details)
+    }
     setDetails(initialState);
   };
 
-  //firebase authentication
-  const auth = getAuth()
-  const provider = new GoogleAuthProvider()
-
-  
-  const handleGoogleLogin = (e) => {
+  const handleGoogleSignIn = (e) => {
     e.preventDefault()
-    signInWithPopup(auth, provider).then((result) => {
-       // This gives you a Google Access Token. You can use it to access the Google API.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    // The signed-in user info.
-    const user = result.user;
-    console.log(user);
-
-    }).catch((error) => {
-      // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    const email = error.customData.email;
-    // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
-    })
-   
+    if (!isSigninIn) {
+      setIsSigningIn(true)
+      doSignInWithGoogle().catch(err => {
+        setIsSigningIn(false)
+      })
+    }
   }
+
+ 
+  
+  
 
   return (
     <div className="h-screen relative py-12">
+      {userLoggedIn && (<Navigate to={'/home'} replace={true}/>)}
       <div className="py-[25vh] flex  justify-center px-4">
         <form
           onSubmit={handleSubmit}
@@ -85,8 +86,8 @@ const Login = () => {
           </button>
         <p className="text-center text-white">Dont have account? <a href="/registration" className="font-bold text-gray-200">Sign Up</a></p>
         </form>
-      <div onClick={handleGoogleLogin} className="flex gap-12 absolute w-8 h-8 bottom-[20%] left-[27%] md:left-[35%] md:w-40 md:h-10 lg:w-40 lg:h-14 lg:bottom-[20%] lg:left-[42%]">
-        <img
+      <div  className="flex gap-12 absolute w-8 h-8 bottom-[20%] left-[27%] md:left-[35%] md:w-40 md:h-10 lg:w-40 lg:h-14 lg:bottom-[20%] lg:left-[42%]">
+        <img onClick={handleGoogleSignIn}
           src={Google}
           alt="google"
           className="rounded-xl hover:scale-125 duration-100 cursor-pointer"

@@ -15,6 +15,7 @@ import {
 } from "react-router-dom";
 import { About } from "./pages/About";
 import Login from "./pages/Login";
+import Registeration from "./pages/Registration";
 
 const Layout = () => {
   return (
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
       {
         path:"/about",
         element: <About />
+      },
+      {
+        path:"/registration",
+        element: <Registeration />
       },
       {
         path:"/login",
